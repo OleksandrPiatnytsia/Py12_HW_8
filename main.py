@@ -9,10 +9,11 @@ from models import Author, Quot
 
 connect(db=db_name, host=URI)
 
-parser = argparse.ArgumentParser(description='Cats APP')
+parser = argparse.ArgumentParser(description='Authors quotes APP')
 parser.add_argument('--action', help='Command: create, update, find, remove')
 parser.add_argument('--id')
 parser.add_argument('--name')
+parser.add_argument('--path')
 parser.add_argument('--age')
 parser.add_argument('--features', nargs='+')
 
@@ -21,9 +22,10 @@ my_arg = vars(arguments)
 
 action = my_arg.get('action')
 name = my_arg.get('name')
-age = my_arg.get('age')
+path = my_arg.get('path')
+quot = my_arg.get('quot')
 _id = my_arg.get('id')
-features = my_arg.get('features')
+tags = my_arg.get('tags')
 
 
 def create(fullname="", born_date="", born_location="", description="", filepath=""):
@@ -72,8 +74,8 @@ def create(fullname="", born_date="", born_location="", description="", filepath
 def main():
     match action:
         case 'create':
-            result = create(name, age, features)
-            print(result.to_mongo().to_dict())
+            result = create(filepath=path)
+            # print(result.to_mongo().to_dict())
         case 'find':
             result = find()
             # print(result)
@@ -90,4 +92,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-    # print(find_by_id("649b1a8bc48b832dfb7146f8"))

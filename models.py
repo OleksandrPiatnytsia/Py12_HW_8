@@ -10,7 +10,7 @@ class Author(Document):
     fullname = StringField(max_length=120, required=True)
     born_date = StringField(max_length=60, required=True)
     born_location = StringField(max_length=120, required=True)
-    description = StringField(max_length=240, required=True)
+    description = StringField(required=True)
     meta = {'collection': 'authors'}
 
 

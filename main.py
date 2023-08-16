@@ -43,7 +43,6 @@ def parse_data(inputted_data):
 
 def main():
 
-
     while True:
         inputted_data = input("Input search data or type 'exit' to close app:").strip()
 

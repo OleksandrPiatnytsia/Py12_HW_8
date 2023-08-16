@@ -32,7 +32,7 @@ def callback(ch, method, properties, body):
         contact.email_date_got = datetime.now()
         contact.save()
 
-    print(f" [x] Email sent to {contact_id}: {contact.fullname}")
+    print(f" [x] Email sent to {contact.email}: {contact_id}: {contact.fullname}")
 
 
 def find_contact(contact_id):
